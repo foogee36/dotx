@@ -13,7 +13,7 @@ fi
 
 # Set up the dotfiles
 echo "Setting up dotfiles..."
-${chezmoi} init https://github.com/foogee36/dotx.git
+${chezmoi} init --apply https://github.com/foogee36/dotx.git
 
 # Check if the `zsh` command is available
 if ! command -v zsh >/dev/null; then
@@ -27,3 +27,13 @@ if ! starship="$(command -v starship)"; then
   echo "Installing starship..."
   curl -sS https://starship.rs/install.sh | sh -s -- -b ${BIN_DIR}
 fi
+
+# Check if the `unzip` command is available
+if ! command -v unzip >/dev/null; then
+  sudo apt-get install -y unzip
+fi
+
+# Install UDEV fonts
+echo "Installing UDEV fonts..."
+wget https://github.com/yuru7/udev-gothic/releases/download/v2.0.0/UDEVGothic_NF_v2.0.0.zip
+unzip -j UDEVGothic_NF_v2.0.0.zip -d ~/.local/share/fonts
