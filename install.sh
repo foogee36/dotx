@@ -25,7 +25,7 @@ fi
 # Check if the `starship` command is available
 if ! starship="$(command -v starship)"; then
   echo "Installing starship..."
-  curl -sS https://starship.rs/install.sh | sh -s -- -b ${BIN_DIR}
+  curl -sS https://starship.rs/install.sh | sh -s -- -b ${BIN_DIR} -y
 fi
 
 # Check if the `unzip` command is available
