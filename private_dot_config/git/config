@@ -1,0 +1,9 @@
+[user]
+	email = 151516627+foogee36@users.noreply.github.com
+	name = foogee36
+[include]
+	path = ~/.config/git/config.d/local
+[includeIf "gitdir:~/src/github.com/foogee36/"]
+	path = ~/.config/git/config.d/foogee36
+[core]
+	editor = vim
