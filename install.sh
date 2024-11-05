@@ -14,6 +14,13 @@ fi
 echo "Setting up dotfiles..."
 ${chezmoi} init https://github.com/foogee36/dotx.git
 
+# Check if the `zsh` command is available
+if ! command -v zsh >/dev/null; then
+  sudo apt-get install -y zsh
+  # change default shell for current user
+  sudo chsh -s "$(which zsh)"
+fi
+
 # Check if the `starship` command is available
 if ! starship="$(command -v starship)"; then
   echo "Installing starship..."
